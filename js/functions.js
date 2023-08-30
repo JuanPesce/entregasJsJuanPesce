@@ -29,6 +29,10 @@ function ingresarSueldo(){
 function cartera(){
     let tipoCuenta = prompt("Ingrese el tipo de Cuenta: Normal/Gold/Premium/Otros").toUpperCase();
 
+    return tipoCuenta;
+}
+
+function valorAlicuota(cartera){
     if(tipoCuenta == "NORMAL"){
         alicuota = 7;
     } else if(tipoCuenta == "GOLD"){
@@ -38,9 +42,8 @@ function cartera(){
     } else {
         alicuota = 8;
     }
-    console.log("Alicuota Cuenta: "+ alicuota); 
 
-    return tipoCuenta;
+    return alicuota;
 }
 
 
@@ -75,4 +78,19 @@ function duracion(){
 
     return plazo;
 
+}
+
+function calcularCapitalizacion(plazo){
+    if(plazo == 30){
+        capitalizacion = "Mensual";
+    } else if(plazo == 60){
+        capitalizacion = "Bimestral";
+    } else if(plazo == 180){
+        capitalizacion = "Semestral";
+    } else {
+        capitalizacion ="Anual";
+    }
+    
+    console.log("Capitalizacion: "+capitalizacion);
+    return capitalizacion;
 }
