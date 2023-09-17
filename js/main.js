@@ -13,7 +13,7 @@ const productos = [
 class Carrito {
     constructor() {
         this.productos = [];
-        this.cantMinPeso = 10000;
+        this.cantMinPeso = 5000;
         this.totalAPagarMax = 6000;
         this.precioEnvio = 3800;
         this.envioAgregado = false;
