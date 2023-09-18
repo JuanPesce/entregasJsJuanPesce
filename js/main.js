@@ -79,7 +79,7 @@ class Carrito {
 
 function mostrarTotalAPagar() {
     let salida = "Total Productos: " + carrito.totalProductos() + "\n";
-    salida += "Subtotal: $" + carrito.totalAPagar() + "\n";
+  /*  salida += "Subtotal: $" + carrito.totalAPagar() + "\n";*/
 
     if (carrito.envioAgregado) {
         salida += "Precio Envio: $" + carrito.precioEnvio + "\n";
@@ -95,6 +95,7 @@ function mostrarTotalPeso() {
 
     return carga;
 }
+
 
 // Comienzo de mi Programa
 const carrito = new Carrito(); // Declaro mi Array Carrito (comienza vacío por defecto);
@@ -119,12 +120,22 @@ while (productoSeleccionado != 0) {
     carrito.agregarProducto(producto, cantidad); // Agregar al Carrito el producto seleccionado 
 }
 
+let compraDetalles = "Detalles de la Compra:\n\n";
+for (const item of carrito.productos) {
+    const producto = item.itemProducto;
+    const cantidad = item.itemCantidad;
+    const totalProducto = producto.precio * cantidad;
+    compraDetalles += `${producto.nombre} - Cantidad: ${cantidad} - Total: $${totalProducto}\n`;
+}
+
+
 carrito.agregarEnvio(); // Preguntar si se desea agregar el Envio
 salida = mostrarTotalAPagar();
 carga = mostrarTotalPeso();
 
-alert(salida);
+alert(compraDetalles + "\n" + salida + "\n" + carga);
+
 console.log(salida);
 console.log(carga);
-
+console.log(compraDetalles);
 console.log(carrito);
